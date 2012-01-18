@@ -24,7 +24,7 @@ public class GameOfLife extends JFrame {
 		setSize(950, 950);
 		setLocationRelativeTo(null);
 		setVisible(true);
-		setResizable(false);
+		//setResizable(false);
 		//add( new javax.swing.JButton("Next Generation"));
 	}
 	
@@ -33,22 +33,3 @@ public class GameOfLife extends JFrame {
 	}
 	
 }
-
-/*
-
-public class GameOfLife {
-	public static void main( String[] argv) {
-		System.out.println("Bluh bluh");
-		
-		Universe u = new Universe( 37, 100 );
-		u.fillRandom();
-		for( int i=0; i<900; i++ ) {
-			System.out.println(u);
-		//	u.printNeighbors();
-			u.nextGeneration();
-			System.out.println(i + "==================");
-		}
-		System.out.println(u);
-	}
-}
-*/
