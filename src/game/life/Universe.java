@@ -70,6 +70,7 @@ public class Universe {
 			}
 		}
 		// update ourself
+		uni = null;	// this is a hint to the GC that I want to delete uni
 		uni = next;
 	}
 
