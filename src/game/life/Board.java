@@ -11,6 +11,7 @@ import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.util.Timer;
 
+import javax.swing.JFrame;
 import javax.swing.JPanel;
 
 /**
@@ -28,7 +29,7 @@ public class Board extends JPanel implements MouseListener, ComponentListener {
 	private Universe uni;
 	private int sizex, sizey, scale;
 
-	public Board( int sizeScale) {
+	public Board(int sizeScale) {
 		scale = sizeScale;
 		dealWithSize();
 		this.addMouseListener(this);
@@ -38,6 +39,19 @@ public class Board extends JPanel implements MouseListener, ComponentListener {
 		Timer t = new Timer();
 		RefreshTimerTask rt = new RefreshTimerTask(this);
 		t.schedule(rt, 500, 200);
+	}
+
+	public Universe getUniverse() {
+		return uni;
+	}
+
+	public void setScale(int s) {
+		this.scale = s;
+		this.dealWithSize();
+	}
+	
+	public int getScale() {
+		return this.scale;
 	}
 
 	public void dealWithSize() {
@@ -62,17 +76,11 @@ public class Board extends JPanel implements MouseListener, ComponentListener {
 	}
 
 	/*
-	public void setSize(int x, int y) {
-		super.setSize(x, y);
-		sizex = x;
-		sizey = y;
-		uni = new Universe(x, y);
-		uni.fillRandom();
-		uni.nextGeneration();
-		this.repaint();
-	}
-	*/
-	
+	 * public void setSize(int x, int y) { super.setSize(x, y); sizex = x; sizey
+	 * = y; uni = new Universe(x, y); uni.fillRandom(); uni.nextGeneration();
+	 * this.repaint(); }
+	 */
+
 	public void paint(Graphics g) {
 		// init the paint
 		super.paint(g);
@@ -109,13 +117,27 @@ public class Board extends JPanel implements MouseListener, ComponentListener {
 	}
 
 	/**
-	 * When the mouse is clicked, reset the whole universe
+	 * Resize the universe when the board is resized.
 	 */
 	@Override
+	public void componentResized(ComponentEvent arg0) {
+		dealWithSize();
+	}
+
+	/**
+	 * When the mouse is clicked, reset the whole universe lauch the config
+	 * panel
+	 */
+	@SuppressWarnings("deprecation")
+	@Override
 	public void mouseClicked(MouseEvent arg0) {
-		uni.fillRandom();
-		uni.nextGeneration();
-		this.repaint();
+		// uni.fillRandom();
+		// this.refresh();
+		JFrame jf = new JFrame();
+		jf.add(new ConfigPanel(this));
+		jf.setSize(150, 200);
+		jf.setResizable(false);
+		jf.show();
 	}
 
 	@Override
@@ -152,14 +174,6 @@ public class Board extends JPanel implements MouseListener, ComponentListener {
 	public void componentMoved(ComponentEvent arg0) {
 		// TODO Auto-generated method stub
 
-	}
-
-	/**
-	 * Resize the universe when the board is resized.
-	 */
-	@Override
-	public void componentResized(ComponentEvent arg0) {
-		dealWithSize();
 	}
 
 	@Override
