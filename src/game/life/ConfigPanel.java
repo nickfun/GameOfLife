@@ -17,12 +17,12 @@ public class ConfigPanel extends JPanel {
 
 	private static final long serialVersionUID = 1L;
 	
-	private Board board;
+	private GameBoard board;
 	private JButton btnSave, btnReset;
 	private JLabel lblSize;
 	private JTextField txtScale;
 
-	public ConfigPanel( Board b ) {
+	public ConfigPanel( GameBoard b ) {
 		board = b;
 		this.setLayout( new FlowLayout(FlowLayout.LEFT));
 		this.setSize(100, 100);

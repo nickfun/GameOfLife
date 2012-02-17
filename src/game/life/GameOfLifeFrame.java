@@ -16,7 +16,7 @@ public class GameOfLifeFrame extends JFrame {
 	private static final long serialVersionUID = 1L;
 
 	public GameOfLifeFrame() {
-		Board b = new Board(3);
+		GameBoard b = new GameBoard(3);
 		b.setSize(300,300);
 		add(b);
 		setTitle("Game of Life");

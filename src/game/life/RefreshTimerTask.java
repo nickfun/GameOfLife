@@ -4,9 +4,9 @@ import java.util.TimerTask;
 
 public class RefreshTimerTask extends TimerTask {
 	
-	private Board gameBoard;
+	private GameBoard gameBoard;
 	
-	public RefreshTimerTask( Board b ) {
+	public RefreshTimerTask( GameBoard b ) {
 		gameBoard = b;
 	}
 

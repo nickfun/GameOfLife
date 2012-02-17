@@ -20,7 +20,7 @@ import javax.swing.JPanel;
  * @author Nicholas Funnell <nick@nick.gs>
  * @date January 12, 2012
  */
-public class Board extends JPanel implements MouseListener, ComponentListener {
+public class GameBoard extends JPanel implements MouseListener, ComponentListener {
 
 	/**
 	 * 
@@ -28,8 +28,9 @@ public class Board extends JPanel implements MouseListener, ComponentListener {
 	private static final long serialVersionUID = 1L;
 	private Universe uni;
 	private int sizex, sizey, scale;
+	private JFrame configFrame;
 
-	public Board(int sizeScale) {
+	public GameBoard(int sizeScale) {
 		scale = sizeScale;
 		dealWithSize();
 		this.addMouseListener(this);
@@ -39,6 +40,13 @@ public class Board extends JPanel implements MouseListener, ComponentListener {
 		Timer t = new Timer();
 		RefreshTimerTask rt = new RefreshTimerTask(this);
 		t.schedule(rt, 500, 200);
+		
+		// setup the config frame
+		configFrame = new JFrame();
+		configFrame.add(new ConfigPanel(this));
+		configFrame.setSize(150, 200);
+		configFrame.setResizable(false);
+		configFrame.hide();
 	}
 
 	public Universe getUniverse() {
@@ -49,7 +57,7 @@ public class Board extends JPanel implements MouseListener, ComponentListener {
 		this.scale = s;
 		this.dealWithSize();
 	}
-	
+
 	public int getScale() {
 		return this.scale;
 	}
@@ -131,13 +139,7 @@ public class Board extends JPanel implements MouseListener, ComponentListener {
 	@SuppressWarnings("deprecation")
 	@Override
 	public void mouseClicked(MouseEvent arg0) {
-		// uni.fillRandom();
-		// this.refresh();
-		JFrame jf = new JFrame();
-		jf.add(new ConfigPanel(this));
-		jf.setSize(150, 200);
-		jf.setResizable(false);
-		jf.show();
+		this.configFrame.show();
 	}
 
 	@Override
