@@ -29,6 +29,7 @@ public class GameBoard extends JPanel implements MouseListener, ComponentListene
 	private Universe uni;
 	private int sizex, sizey, scale;
 	private JFrame configFrame;
+        private Timer timer;
 
 	public GameBoard(int sizeScale) {
 		scale = sizeScale;
@@ -37,9 +38,9 @@ public class GameBoard extends JPanel implements MouseListener, ComponentListene
 		this.addComponentListener(this);
 
 		// setup the timer thing I guess
-		Timer t = new Timer();
+		timer = new Timer();
 		RefreshTimerTask rt = new RefreshTimerTask(this);
-		t.schedule(rt, 500, 200);
+		timer.schedule(rt, 500, 200);
 		
 		// setup the config frame
 		configFrame = new JFrame();
@@ -48,6 +49,13 @@ public class GameBoard extends JPanel implements MouseListener, ComponentListene
 		configFrame.setResizable(false);
 		configFrame.hide();
 	}
+        
+        public void setTimer( int delay ) {
+            timer.cancel();
+            timer = null;
+            timer = new Timer();
+            timer.schedule(new RefreshTimerTask(this), 100, delay);
+        }
 
 	public Universe getUniverse() {
 		return uni;
