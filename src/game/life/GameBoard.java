@@ -28,7 +28,7 @@ public class GameBoard extends JPanel implements MouseListener, ComponentListene
 	private static final long serialVersionUID = 1L;
 	private Universe uni;
 	private int sizex, sizey, scale;
-	private JFrame configFrame;
+	private final JFrame configFrame;
         private Timer timer;
 
 	public GameBoard(int sizeScale) {

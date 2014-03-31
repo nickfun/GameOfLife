@@ -19,8 +19,8 @@ public class ConfigPanel extends JPanel {
 	
 	private GameBoard board;
 	private JButton btnSave, btnReset;
-	private JLabel lblSize;
-	private JTextField txtScale;
+	private JLabel lblSize, lblSpeed;
+	private JTextField txtScale, txtSpeed;
 
 	public ConfigPanel( GameBoard b ) {
 		board = b;
@@ -44,12 +44,16 @@ public class ConfigPanel extends JPanel {
 		});
 		
 		lblSize = new JLabel("Size of cells: ");
+                lblSpeed = new JLabel("Speed of Refresh (miliseconds:");
 		txtScale = new JTextField( Integer.toString(b.getScale()) );
+                txtSpeed = new JTextField("500");
 		txtScale.requestFocus();
 		txtScale.setColumns(8);
 		
 		this.add(lblSize);
 		this.add(txtScale);
+                this.add(lblSpeed);
+                this.add(txtSpeed);
 		this.add(btnSave);
 		this.add(btnReset);
 	}
