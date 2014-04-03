@@ -97,6 +97,7 @@ public class GameBoard extends JPanel implements MouseListener, ComponentListene
 	 * this.repaint(); }
 	 */
 
+    @Override
 	public void paint(Graphics g) {
 		// init the paint
 		super.paint(g);
@@ -134,6 +135,7 @@ public class GameBoard extends JPanel implements MouseListener, ComponentListene
 
 	/**
 	 * Resize the universe when the board is resized.
+     * @param arg0 parameter is ignored
 	 */
 	@Override
 	public void componentResized(ComponentEvent arg0) {
@@ -141,8 +143,9 @@ public class GameBoard extends JPanel implements MouseListener, ComponentListene
 	}
 
 	/**
-	 * When the mouse is clicked, reset the whole universe lauch the config
+	 * When the mouse is clicked, reset the whole universe launch the config
 	 * panel
+     * @param arg0 parameter is ignored
 	 */
 	@SuppressWarnings("deprecation")
 	@Override

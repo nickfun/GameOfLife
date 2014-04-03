@@ -29,7 +29,7 @@ public class GameOfLifeFrame extends JFrame {
 	}
 	
 	public static void main(String[] args) {
-		new GameOfLifeFrame();
+        GameOfLifeFrame gameOfLifeFrame = new GameOfLifeFrame();
 	}
 	
 }

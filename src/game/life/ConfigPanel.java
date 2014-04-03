@@ -17,10 +17,10 @@ public class ConfigPanel extends JPanel {
 
 	private static final long serialVersionUID = 1L;
 	
-	private GameBoard board;
-	private JButton btnSave, btnReset;
-	private JLabel lblSize, lblSpeed;
-	private JTextField txtScale, txtSpeed;
+	private final GameBoard board;
+	private final JButton btnSave, btnReset;
+	private final JLabel lblSize, lblSpeed;
+	private final JTextField txtScale, txtSpeed;
 
 	public ConfigPanel( GameBoard b ) {
 		board = b;
@@ -30,6 +30,7 @@ public class ConfigPanel extends JPanel {
 		btnSave = new JButton();
 		btnSave.setText("Save");
 		btnSave.addMouseListener( new java.awt.event.MouseAdapter() {
+            @Override
 			public void mouseClicked(java.awt.event.MouseEvent evt) {
 				btnSaveMouseClicked(evt);
 			}
@@ -38,6 +39,7 @@ public class ConfigPanel extends JPanel {
 		btnReset = new JButton();
 		btnReset.setText("Reset Board");
 		btnReset.addMouseListener( new java.awt.event.MouseAdapter() {
+            @Override
 			public void mouseClicked(  java.awt.event.MouseEvent evt) {
 				btnResetMouseClicked(evt);
 			}
