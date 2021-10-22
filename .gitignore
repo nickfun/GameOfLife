@@ -1,1 +1,6 @@
-bin/
+bin/.bloop
+.metals
+.bsp
+project
+target
+.bloop
