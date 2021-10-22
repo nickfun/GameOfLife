@@ -6,6 +6,8 @@ Conways game of life implemented in Java. It's a simple project to teach myself 
 Running
 -------
 
+I use sbt v1.4.5
+
 use `sbt package` and it will create a jar file in the target fold.
 
 Then you can run it with `java -jar target/game-of-life-0.1.jar`
